@@ -24,5 +24,5 @@ test('time to test a function', function(assert) {
     const userObject = makeUser(formData);
     //Assert
     // Make assertions about what is expected valid result
-    assert.equal(expected, userObject);
+    assert.deepEqual(expected, userObject);
 });
