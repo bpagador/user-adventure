@@ -1,182 +1,156 @@
-const monsters = {
-    id: 'monsters',
-    title: 'A Den of Monsters',
+const hunger = {
+    id: 'hunger',
+    title: 'A Hungry Tamagotchi Appears',
     map: {
         top: '89%',
         left: '44%'
     },
-    image: 'monsters.jpg',
+    image: 'hunger.png',
     description: `
-        You enter the quest chamber only to be confronted by a hoard of
-        monsters. And they look hungry. What do you do?
+        You visit your beloved virtual pet, Bucket, and they're famished! 
+        Or so they say...you've been fooled before. That Bucket, they sure do love to eat. 
+        How much food is enough food?
     `,
     choices: [{
-        id: 'negotiate',
-        description: 'Negotiate with them',
+        id: 'one-serving',
+        description: 'You know, the yewsh.',
         result: `
-            Knowing the monsters are not too bright, you offer to go buy them all
-            turkey dinners from the village pub. They give you 35 gold for meals
-            that will never be delivered. I hope you can live with yourself. 
+            Having known Bucket since the day they were born, you assess that the usual amount
+            of food is plenty. They have a little tantrum! Oh, Bucket...They lose 5 Happiness points 
+            but ultimately gain 10 Wellness points because Mom is always right. 
         `,
-        hp: 0,
-        gold: 35
+        happiness: -5,
+        wellness: 10
     }, {
-        id: 'fight',
-        description: 'Fiiiiiggghhhttt!',
+        id: 'heaping-serving',
+        description: 'Ok, ok, they can have a little extra than usual.',
         result: `
-            Brandishing your sword you let out a warrior's cry and charge into the monsters
-            hacking and slashing. Before long you stand panting gazing across the bodies of
-            your vanquished foes. The bad news is you take 30 hp damage. The good news is you
-            find 50 gold.
+            Being a sucker for your baby Bucket, you give in and serve them much more than is wise. Having 
+            pulled on your heart strings and knowing perfectly well they can get away with murder, Bucket
+            relishes in his victory. But hark! A gigantic poop fest ensues and a gnarly bellyache to boot. 
+            Bucket loses 10 Wellness points. 
         `,
-        hp: -30,
-        gold: 50
+        happiness: 0,
+        wellness: -10
     }, {
-        id: 'run',
-        description: 'Run away like good Sir Robin',
+        id: 'no-food',
+        description: 'None for the Glutoneous Bucket!',
         result: `
-            As you make a dash for the door a giant spider descends and take a bite of flesh,
-            causing 50 hp damage.
+            You recall having fed Bucket not long ago. That's right, less than an hour ago! You opt for 
+            a delicious little treat instead. Nothing fancy, just some strawberry pixels to tide them 
+            over, Bucket's favorite. They're as happy as a clam, Bucket gains 15 Happiness points!
         `,
-        hp: -50,
-        gold: 0
+        happiness: 15,
+        wellness: 0
     }]
 };
 
-const dragon = {
-    id: 'dragon',
-    title: 'A Problem Dragon',
+const love = {
+    id: 'love',
+    title: 'Matters of the Heart',
     map: {
         top: '57%',
         left: '67%'
     },
-    image: 'dragon.jpg',
-    audio: 'dragon.wav',
-    action: 'dragon-growl.aiff',
+    image: 'love.png',
     description: `
-        You travel to a nearby village you have heard is being
-        terrorized by a dragon. Sure enough as you rent a room
-        in a local inn, you go outside and see the dragon about
-        to lay seige! What do you do?
+        Bucket needs love, too! Lately, they're been very demanding of your attention. You think it
+        a byproduct of spending a little more time working and not enough time devoting yourself to 
+        loving on Bucket. You feel a little bad, but there is such a thing as tough love, and if we don't
+        push our Tamagotchis out of the nest, will they ever be able to servive in the real world? 
+        You choose to:
     `,
     choices: [{
-        id: 'run',
-        description: 'Get the hell out of the village',
+        id: 'give-in',
+        description: 'Give in, life is short, hold your digital pets close.',
         result: `
-            You high tail it in the opposite direction. Luckily,
-            in the panic you find a bag on the ground with 15 gold.
-            Unluckily, you trip over a discarded wagon wheel on your
-            way out of town and take 40 hp damage. 
+            You spend the next hour hugging and kissing Bucket so much, you feel the tears errupting from 
+            your very eyes. Bucket is very thrilled at first. But an hour of hugging kissing is way too much. 
+            Bucket yells, "Chill, mom!" and you stop dead in your tracks. Bucket's first rebellion, ::sigh:: they
+            grow up so fast. Fighting sucks, Bucket loses 10 Happiness points but gains 10 Wellness points for
+            beginning the work of self-reliance. 
         `,
-        hp: -35,
-        gold: 35
+        happiness: -10,
+        wellness: 10
     }, {
-        id: 'fight',
-        description: 'Fiiiiiggghhhttt!',
+        id: 'gentle-reminder',
+        description: 'Show them enough love to know you still care',
         result: `
-            You attempt to charge towards the dragon, who sees you approach
-            and let's loose a fireball. You wake up the next morning and the
-            village has been completely burned to the ground.
-            Oh, and you take 45 hp damage.
+            A gentle reminder that you are still there, something quick and simple: a big ole hug. Little did you know
+            that Bucket had a big fight with their best friend this morning. They really needed you today and your tough
+            love didn't help any. Bucket really needed their mommy! They lose 15 Happiness points. You really screwed
+            up this one. 
         `,
-        hp: -45,
-        gold: 0
+        happiness: -15,
+        wellness: 0
     }, {
-        id: 'archer',
-        description: 'Emulate that guy from LOR who shot an arrow',
+        id: 'serious-talk',
+        description: 'Have a long, thoughtful chat about what is really going on',
         result: `
-            Inspired by the legend of Bard the Bowman, you notice a
-            stunned archer standing nearby and take their bow and quiver,
-            climb to the top of a tall tower and take aim. On the dragon's
-            next pass you steady your aim and let one fly. Amazingly,
-            you strike the dragon in the eye, piercing into the brain and
-            killing the dragon instantly. The villagers declare you their hero
-            and award you 90 gold.
+            Raising tamagotchis can be tough. Growing up ain't easy. You decide it's time for a real talk and call Bucket
+            into the console with a box of pixelated tissues on hand and ask them to share their heart with you. They spill it
+            like never before, a harsh retelling of pain and betrayal, drama and stress. No wonder they've been needing you 
+            around so much. The release of emotion helps Bucket tremendously and reinforces your bond. They gain 20 points of
+            mental wellness. 
         `,
-        hp: 0,
-        gold: 90
+        happiness: 0,
+        wellness: 20
     }]
 };
 
-const treasure = {
-    id: 'treasure',
-    title: 'The Golden Treasure',
+const outing = {
+    id: 'outing',
+    title: 'A Cabin Fevered Bucket',
     map: {
         top: '31%',
         left: '5%'
     },
-    image: 'treasure-chests.png',
-    audio: 'treasure-chests.wav',
-    action: 'chest-opening.wav',
+    image: 'outing.png',
     description: `
-        As you enter the quest chamber you notice three chests before you.
-        Just as you start to imagine the wealth, you see a giant serpent
-        emerge from the back of the chamber. You'll need to make a run for it,
-        but you have time to open one chest before you take off. Which one 
-        do you choose?
+        Tamagotchis need space to move, they can't be boxed into their pixelated den forever. They've complained about this 
+        before. "Nobody puts Bucket in the corner!" This, they've yelled at you before, many times. Such a little diva. Springtime is 
+        here after all, maybe it's time you obliged. But, ugh, those nasty allergies that haunt Bucket day and night... 
+        Is it worth it? Let them work it? What to do?
     `,
     choices: [{
-        id: 'wooden',
-        description: 'A Wooden Chest',
-        result: 'You grab 40 gold pieces!',
-        hp: 0,
-        gold: 40
+        id: 'quick-stroll',
+        description: 'Take a quick stroll.',
+        result: `
+            The outing is enough to nourish Bucket and fulfill their need for fresh air and sunlight, but not enough to send them into
+            a hayfever frenzy. Buckets returns home itch-free but remains pensive all the same. "Am I the genie in the bottle?," they wonder. 
+            10 points for Wellness but the questions remains, what is it all for?
+            `,
+        happiness: 0,
+        wellness: 10
     }, {
-        id: 'golden',
-        description: 'A Golden Chest',
-        result: 'Oh no! The chest is booby trapped with poison and you take 50 hp damage',
-        hp: -50,
-        gold: 0
+        id: 'buns-out',
+        description: 'Suns out, buns out, baby--time to lay on the grass all day',
+        result: `
+            Bucket is happy as a clam to be soaking up that spring sun, bring on the good times! Or so they think...30 minutes after
+            rolling around in the park, Bucket breaks out in hives. Burn, baby, burn, springtime inferno! Knowing you'll have to take 
+            them home soon for an oatmeal bath, you both commisurate on the beauty of the season despite the pain inevitably attached to it. 
+            25 Happiness points for Bucket and all humankind. 
+        `,
+        happiness: 25,
+        wellness: 0
     }, {
-        id: 'jeweled',
-        description: 'A Jeweled Chest',
-        result: 'A warm light engulfs you and you gain 35 hp',
-        hp: 35,
-        gold: 0
+        id: 'stay-in',
+        description: 'Bucket could get very sick! Best to be cautious and stay in.',
+        result: `
+            Bucket is terribly disappointed. They scream and huff and puff and you ultimately decide to let them sit on the porch. A tiny 
+            consolation, but knowing Bucket well enough, you understand it isn't enough. You offer them some ice cream pixels as a peace offering. 
+            Just enough to boost the spirit, but definitely not enough to keep Bucket of sound mind. They scream into a pillow and end up crying
+            the whole night. The crying is so bad it dehydrates them and Bucket loses 10 Wellness points. 
+        `,
+        happiness: 5,
+        wellness: 10
     }]
 };
 
 const quests = [
-    monsters, 
-    treasure,
-    dragon, {
-        id: 'pleasure',
-        title: 'The Bold Folding Pleasure',
-        map: {
-            top: '61%',
-            left: '10%'
-        },
-        image: 'treasure-chests.png',
-        audio: 'treasure-chests.wav',
-        action: 'chest-opening.wav',
-        description: `
-        As you enter the quest chamber you notice three chests before you.
-        Just as you start to imagine the wealth, you see a giant serpent
-        emerge from the back of the chamber. You'll need to make a run for it,
-        but you have time to open one chest before you take off. Which one 
-        do you choose?
-    `,
-        choices: [{
-            id: 'wooden',
-            description: 'WOW',
-            result: 'You grab 40 gold pieces!',
-            hp: 0,
-            gold: 40
-        }, {
-            id: 'golden',
-            description: 'NOW',
-            result: 'Oh no! The chest is booby trapped with poison and you take 50 hp damage',
-            hp: -50,
-            gold: 0
-        }, {
-            id: 'jeweled',
-            description: 'POW',
-            result: 'A warm light engulfs you and you gain 35 hp',
-            hp: 35,
-            gold: 0
-        }
-        ]
-    }
+    hunger, 
+    love,
+    outing, 
 ];
 
 export default quests;
