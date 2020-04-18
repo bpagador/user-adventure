@@ -105,7 +105,7 @@ const outing = {
         top: '31%',
         left: '5%'
     },
-    image: 'outing.png',
+    image: 'outing.jpg',
     description: `
         Tamagotchis need space to move, they can't be boxed into their pixelated den forever. They've complained about this 
         before. "Nobody puts Bucket in the corner!" This, they've yelled at you before, many times. Such a little diva. Springtime is 

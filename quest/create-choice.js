@@ -3,5 +3,17 @@ function createChoice(choice) {
     label.classList.add('choice');
 
     const radio = document.createElement('input');
-    radio.type = 
+    radio.type = 'radio';
+    radio.name = 'choice';
+    radio.required = true;
+    radio.value = choice.id;
+    label.appendChild(radio);
+
+    const description = document.createElement('span');
+    description.textContent = choice.description;
+    label.appendChild(description);
+
+    return label;
 }
+
+export default createChoice;
