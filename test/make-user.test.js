@@ -9,14 +9,13 @@ test('time to test a function', function(assert) {
     const formData = new FormData();
 
     formData.set('name', 'dani');
-    formData.set('class', 'wizard');
 
     const expected = {
-        name: 'dani',
-        class: 'wizard',
+        id: 'dani',
+        happiness: 0,
+        wellness: 0,
         completed: {},
-        HP: 50,
-        gold: 0,
+        
     };
 
     //Act 
