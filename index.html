@@ -6,11 +6,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Tamagotchi Adventure</title>
 </head>
-
 <body>
-    login page
+    <header>
+        <h1>Tamagotchi Adventures</h1>
+    </header>
+    
+    <main>
+
+        <div id="instruction">
+            <h2>Meet your new digital creature friend :)</h2>
+        </div>
+
+        <div id="user-form"></div>
+
+        <form id ="user">
+
+            <h2>Name:</h2>
+            <label>
+                <input id="name" name="name" required>
+            </label>
+
+            <br>
+
+            <h2>Relationship:</h2>
+            <label>
+                Parent
+                <input type="radio" name="option" id="parent" class="radio">
+            </label>
+
+            <label>
+                Friend
+                <input type="radio" name="option" id="friend" class="radio">
+            </label>
+
+            <h2>Ready to begin?</h2>
+            <button>Yes!</button>
+    </main>
+  
+        </form>
     <script type="module" src="app.js"></script>
 </body>
 

@@ -10,8 +10,32 @@
 </head>
 
 <body>
+    <header>
+        <h3>Adventure Time</h3>
+        <div class="profile">
+            <span id="name"></span>
+            happiness:<span id="happiness"></span><br>
+            wellness:<span id="wellness"></span>
+        </div>
+    </header>
 
-    <script type="module" src="app.js"></script>
+    <main>
+        <h3 id="title"></h3>
+        <img id="image" src="">
+        <p id="description"></p>
+
+        <form id="choice-form">
+            <p id="choices"></p>
+            <button>Choose</button>
+        </form>
+
+        <section id="result">
+            <p id="choice-result"></p>
+            <a href="../map/index.html">Keep adventuring!</a>
+        </section>
+    </main>
+    
+    <script type="module" src="quest.js"></script>
 </body>
 
 </html>
