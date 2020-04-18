@@ -11,31 +11,30 @@
 
 <body>
     <header>
-        <h3>Meet your new digital pet, Bucket!</h3>
+        <h3>Adventure Time</h3>
+        <div class="profile">
+            <span id="name"></span>
+            happiness:<span id="happiness"></span><br>
+            wellness:<span id="wellness"></span>
+        </div>
     </header>
-    <h3 id='h3'></h3>
 
-    <img id='img'/>
+    <main>
+        <h3 id="title"></h3>
+        <img id="image" src="">
+        <p id="description"></p>
 
-    <div id='div'></div>
+        <form id="choice-form">
+            <p id="choices"></p>
+            <button>Choose</button>
+        </form>
 
-    <form id='form'>
-
-        <label class="label">
-            <input class="input" type="radio" name="quest"/>
-        </label>
-
-        <label class="label">
-            <input class="input" type="radio" name="quest" />
-        </label>
-
-        <label class="label">
-            <input class="input" type="radio" name="quest" />
-        </label>
-
-        <button>Submit</button>
-
-    </form>
+        <section id="result">
+            <p id="choice-result"></p>
+            <a href="../map/index.html">Keep adventuring!</a>
+        </section>
+    </main>
+    
     <script type="module" src="quest.js"></script>
 </body>
 

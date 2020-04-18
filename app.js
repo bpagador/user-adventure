@@ -1,13 +1,14 @@
 import makeUser from './make-user.js'; 
+import { saveUser } from './data/local-storage.js';
 
-const myForm = document.getElementById('user-form');
+const myForm = document.getElementById('user');
 
 myForm.addEventListener('submit', (event) => {
     event.preventDefault();
+    const userInfo = new FormData(myForm);
+    const user = makeUser(userInfo);
 
-    const user = makeUser(myForm);
+    saveUser(user);
 
-    const stringyUser = JSON.stringify(user);
-    localStorage.setItem('USER', stringyUser);
-
+    window.location = 'map';
 });

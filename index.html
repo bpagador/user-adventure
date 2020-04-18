@@ -10,21 +10,42 @@
 </head>
 <body>
     <header>
-        Adopt Baby Bucket, the virtual pet you've always 
-        dreamed of!
+        <h1>Tamagotchi Adventures</h1>
     </header>
-    <br>
+    
+    <main>
 
-    <form id="user-form">
+        <div id="instruction">
+            <h2>Meet your new digital creature friend :)</h2>
+        </div>
 
-        <label>
-            Name:
-            <input name="name">
-        </label>
-        
-        <button id="submit">Submit</button>
-        
-    </form>
+        <div id="user-form"></div>
+
+        <form id ="user">
+
+            <h2>Name:</h2>
+            <label>
+                <input id="name" name="name" required>
+            </label>
+
+            <br>
+
+            <h2>Relationship:</h2>
+            <label>
+                Parent
+                <input type="radio" name="option" id="parent" class="radio">
+            </label>
+
+            <label>
+                Friend
+                <input type="radio" name="option" id="friend" class="radio">
+            </label>
+
+            <h2>Ready to begin?</h2>
+            <button>Yes!</button>
+    </main>
+  
+        </form>
     <script type="module" src="app.js"></script>
 </body>
 

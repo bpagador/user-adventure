@@ -1,5 +1,5 @@
 import quests from '../data/quest-data.js';
-import { findById } from '../utils.js';
+import findById from '../data/utils.js';
 
 const params = new URLSearchParams(window.location.search);
 
@@ -7,21 +7,26 @@ const questId = params.get('id');
 
 const quest = findById(quests, questId);
 
-const img = document.getElementById('img');
-const h3 = document.getElementById('h3');
-const div = document.getElementById('div');
-const form = document.getElementById('form');
+const title = document.getElementById('title');
+const image = document.getElementById('image');
+const description = document.getElementById('description');
+const choiceForm = document.getElementById('choice-form');
+const choices = document.getElementById('choices');
+const result = document.getElementById('result');
+const resultDescription = document.getElementById('choice-result');
 
-img.src = '../assets/' + quests.image;
+title.textContent = quest.title;
+image.src = '../assets/' + quest.image;
+
 h3.textContent = quests.title;
 div.textContent = quests.description;
 
 const labels = document.querySelectorAll('label');
 const radios = document.querySelectorAll('input');
 
-for (let i = 0; i < quest.choices.length; i++) {
-    labels[i].append(quest.choices[i].description);
-    radios[i].value = quest.choices[i].id;
+for (let i = 0; i < (quests.choices).length; i++) {
+    labels[i].append(quests.choices[i].description);
+    radios[i].value = quests.choices[i].id;
 }
 
 form.addEventListener('submit', (event) => {

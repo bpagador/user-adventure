@@ -1,11 +1,11 @@
-export default function makeUser(_formData) {
-    const userName = _formData.get('name');
-
+export default function makeUser(formData) {
+    
     const userObject = {
-        name: userName,
-        completed: {},
-        happiness: 50,
+        id: formData.get('name'),
+        happiness:0,
         wellness: 0,
+        completed: {},
+    
     };
 
     return userObject;
