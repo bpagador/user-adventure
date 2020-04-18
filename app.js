@@ -1,4 +1,4 @@
-import makeUser from './make-user.js';
+import makeUser from './make-user.js'; 
 
 const myForm = document.getElementById('user-form');
 

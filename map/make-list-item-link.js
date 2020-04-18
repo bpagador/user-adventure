@@ -3,7 +3,7 @@ export default function makeListItemLink(questData) {
     li.classList.add('quest-item');
 
     const a = document.createElement('a');
-    a.href = `../quest/?id${questData.id}`;
+    a.href = `../quest/?id=${questData.id}`;
     a.textContent = questData.title;
 
     li.appendChild(a);
